@@ -69,7 +69,9 @@ def download_video(url: str, audio_only: bool = False) -> dict:
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
-            title = info.get("title", "
+            title = info.get("title", "Unknown")
+uploader = info.get("uploader", info.get("channel", "Unknown"))
+
  async def handle_url(update: Update, context: ContextTypes.DEFAULT_TYPE, audio_only: bool = False):
     text = update.message.text.strip()
 
